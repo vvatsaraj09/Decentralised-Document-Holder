@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Decentralised Document Holder</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<base href="/"> 
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="./src/images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="./src/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="./src/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="./src/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="./src/vendor/animate/animate.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="./src/vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="./src/vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<!-- <link rel="stylesheet" type="text/css" href="./src/css/util.css">
+	<link rel="stylesheet" type="text/css" href="./src/css/main.css"> -->
+	<script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.34/dist/web3.js" charset="utf-8"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Faker/3.1.0/faker.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="./index.js" type="text/javascript"></script>
+    <script src="./src/js/app.js" type="text/javascript"></script>
+
+    <script src="./src/js/vendor/modernizr-2.8.3.min.js"></script>
+    <script src="./src/js/vendor/jquery-1.12.0.min.js"></script>
+	<script src="./src/vendor/jquery/dist/jquery.min.js"></script>
+<!--===============================================================================================-->
+<style>
+	*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  font-size: 62,5%;
+}
+
+body {
+  height: 100vh;
+	width: 100%;
+  background: #0f2027; /* fallback for old browsers */
+  background: linear-gradient(to right,#2c5364, #203a43, #0f2027);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: #fff;
+}
+
+.form__label {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.2rem;
+  margin-left: 2rem;
+  margin-top: 0.7rem;
+  display: block;
+  transition: all 0.3s;
+  transform: translateY(0rem);
+}
+
+.form__input {
+  font-family: 'Roboto', sans-serif;
+  color: #333;
+  font-size: 1.2rem;
+	margin: 0 auto;
+  padding: 1.5rem 2rem;
+  border-radius: 0.2rem;
+  background-color: rgb(255, 255, 255);
+  border: none;
+  width: 90%;
+  display: block;
+  border-bottom: 0.3rem solid transparent;
+  transition: all 0.3s;
+}
+
+.form__input:placeholder-shown + .form__label {
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transform: translateY(-4rem);
+  transform: translateY(-4rem);
+}
+
+button {
+  display: block;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  background-color: black;
+  width: 400px;
+  height: 70px;
+  border-radius: 30px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text);
+  background-size: 100% 100%;
+  box-shadow: 0 0 0 7px var(--light) inset;
+  margin-bottom: 15px;
+}
+
+button:hover {
+  background-image: linear-gradient(
+    145deg,
+    transparent 10%,
+    var(--dark) 10% 20%,
+    transparent 20% 30%,
+    var(--dark) 30% 40%,
+    transparent 40% 50%,
+    var(--dark) 50% 60%,
+    transparent 60% 70%,
+    var(--dark) 70% 80%,
+    transparent 80% 90%,
+    var(--dark) 90% 100%
+  );
+  animation: background 3s linear infinite;
+}
+
+</style>
+</head>
+<body>
+
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100 p-b-160 p-t-50">
+				<form class="login100-form validate-form">
+
+					<!-- <div class="wrap-input100 rs1 validate-input" data-validate = "Aadhar number is required">
+						<input class="input100" type="text" id="Aadhar_No">
+						<span class="label-input100">Aadhar Number</span>
+					</div> -->
+					<div class="form__group">
+						<input type="text" class="form__input" id="Aadhar_No" placeholder="Aadhar Number" required="" />
+						<label for="name" class="form__label">Aadhar Number</label>
+
+						
+						<input type="text" class="form__input" id="Email_Address" placeholder="Email Address" required="" />
+						<label for="name" class="form__label">Email Address</label>
+
+						
+						<input type="text" class="form__input" id="pass" placeholder="Password" required="" />
+						<label for="name" class="form__label">Password</label>
+
+						<button onclick="return signUp()">Sign Up</button>
+					  </div>
+
+					<!-- <div class="wrap-input100 rs1 validate-input" data-validate = "Email Address is required">
+						<input class="input100" type="text" id="Email_Address">
+						<span class="label-input100">Email Address</span>
+					</div>
+
+
+					<div class="wrap-input100 rs2 validate-input" data-validate="Password is required">
+						<input class="input100" type="password" id="pass">
+						<span class="label-input100">Password</span>
+					</div>
+
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn" onclick="return signUp()">
+							Create Account
+						</button>
+					</div> -->
+
+					<div class="text-center w-full p-t-23">
+						<a href="./index.html" class="txt1">
+							Already Have account?
+						</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+
+</body>
+</html>
