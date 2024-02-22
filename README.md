@@ -2,6 +2,9 @@
 #### Overview
 This project aims to utilize Blockchain technology to create a fully decentralized document holder system. Traditional document storage methods often rely on centralized servers, which can be vulnerable to security breaches. By leveraging the transparency and immutability of Blockchain, we provide a secure and efficient platform for storing, sharing, and managing documents.
 
+The image below displays the general flow of the application. 
+! [System Model] https://github.com/vvatsaraj09/Decentralised-Document-Holder/blob/main/systemmodel.png
+
 #### Features
 10 Document Upload:
 Users can upload documents of various formats, providing a mandatory document name and category, along with an optional description. The provided categories include:
